@@ -5,7 +5,14 @@ function detectFocus(context) {
    *   Listens for an event if vscode lost/gained focus
    */
   let inactiveTimer = null;
+  let idleTimer = null;
   const patienceTime = 10 * 1000; // time in milliseconds
+  const idleTime = 15 * 1000;
+
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(testNotif, idleTime);
+  }
 
   function startTimer() {
     clearTimer();
@@ -16,12 +23,19 @@ function detectFocus(context) {
     console.log("Hey!!!!");
   }
 
+  function testNotif() {
+    console.log("keyboard idle");
+    idleTimer = setTimeout(testNotif, idleTime);
+  }
+
   function clearTimer() {
     if (inactiveTimer) {
       clearTimeout(inactiveTimer);
       inactiveTimer = null;
     }
   }
+
+  const testListener = vscode.workspace.onDidChangeTextDocument(resetIdleTimer);
 
   const focusListener = vscode.window.onDidChangeWindowState((windowState) => {
     if (windowState.focused) {
@@ -35,7 +49,9 @@ function detectFocus(context) {
     }
   });
 
-  context.subscriptions.push(focusListener);
+  resetIdleTimer();
+
+  context.subscriptions.push(focusListener, testListener);
 }
 
 function activate(context) {
