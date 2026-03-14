@@ -5,13 +5,15 @@ function detectFocus(context) {
    *   Listens for an event if vscode lost/gained focus
    */
   let inactiveTimer = null;
-  let inactiveTimer_2 = null;
   let idleTimer = null;
-  const patienceTime = 10 * 1000; // time in milliseconds
-  const idleTime = 15 * 1000;
-  // 
+  let inactiveAnger = 0;
+  let idleAnger = 0;
+  const patienceTime = 5 * 1000; // time in milliseconds
+  const idleTime = 5 * 1000;
+  //
   // This fuction is for keyboard
   function resetIdleTimer() {
+    idleAnger = 0;
     clearTimeout(idleTimer);
     idleTimer = setTimeout(testNotif, idleTime);
   }
@@ -19,22 +21,25 @@ function detectFocus(context) {
   function startTimer() {
     clearTimer();
     inactiveTimer = setTimeout(windowsNotif, patienceTime); // should call windowsNotif after timer runs out
-    inactiveTimer_2 = setTimeout(windowsNotif_2, patienceTime*2 );
   }
   //Window Notification 1
   function windowsNotif() {
-    console.log("Hey!!!!");
+    inactiveAnger += 1;
+    console.log(`focus idle, anger:${inactiveAnger}`);
+    inactiveTimer = setTimeout(windowsNotif, patienceTime);
   }
   //Test Notification
   function testNotif() {
-    if (vscode.window.activeTextEditor) {
-      console.log("keyboard idle");
+    if (vscode.window.activeTextEditor && vscode.window.state.focused) {
+      idleAnger += 1;
+      console.log(`keyboard idle, anger:${idleAnger}`);
       idleTimer = setTimeout(testNotif, idleTime);
     }
   }
 
   function clearTimer() {
     if (inactiveTimer) {
+      inactiveAnger = 0;
       clearTimeout(inactiveTimer);
       inactiveTimer = null;
     }
