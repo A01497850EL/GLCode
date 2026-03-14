@@ -1,4 +1,5 @@
 const vscode = require("vscode");
+const { INTENSITY, sendNotification } = require("./notify2.js");
 
 function detectFocus(context) {
   /**
@@ -10,6 +11,17 @@ function detectFocus(context) {
   let idleAnger = 0;
   const patienceTime = 5 * 1000; // time in milliseconds
   const idleTime = 5 * 1000;
+
+  function angerConv(anger) {
+    if (anger === 1) {
+      return "low";
+    } else if (anger === 2) {
+      return "medium";
+    } else if (anger >= 3) {
+      return "high";
+    }
+  }
+
   //
   // This fuction is for keyboard
   function resetIdleTimer() {
@@ -25,13 +37,16 @@ function detectFocus(context) {
   //Window Notification 1
   function windowsNotif() {
     inactiveAnger += 1;
+    sendNotification(angerConv(inactiveAnger));
     console.log(`focus idle, anger:${inactiveAnger}`);
+
     inactiveTimer = setTimeout(windowsNotif, patienceTime);
   }
   //Test Notification
   function testNotif() {
     if (vscode.window.activeTextEditor && vscode.window.state.focused) {
       idleAnger += 1;
+      sendNotification(angerConv(idleAnger));
       console.log(`keyboard idle, anger:${idleAnger}`);
       idleTimer = setTimeout(testNotif, idleTime);
     }
