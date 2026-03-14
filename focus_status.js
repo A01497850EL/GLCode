@@ -24,8 +24,10 @@ function detectFocus(context) {
   }
 
   function testNotif() {
-    console.log("keyboard idle");
-    idleTimer = setTimeout(testNotif, idleTime);
+    if (vscode.window.activeTextEditor) {
+      console.log("keyboard idle");
+      idleTimer = setTimeout(testNotif, idleTime);
+    }
   }
 
   function clearTimer() {
@@ -42,6 +44,7 @@ function detectFocus(context) {
       // vscode gained focus
       console.log("gained focus");
       clearTimer();
+      resetIdleTimer();
     } else {
       // vscode lost focus
       startTimer();
@@ -49,7 +52,7 @@ function detectFocus(context) {
     }
   });
 
-  resetIdleTimer();
+  resetIdleTimer(); //initiate timer on startup
 
   context.subscriptions.push(focusListener, testListener);
 }
