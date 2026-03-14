@@ -1,0 +1,13 @@
+{
+  "name": "my-extension",
+  "displayName": "My Extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "main": "./focus_status.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {}
+}
