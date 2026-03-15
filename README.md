@@ -8,10 +8,9 @@ Whether you want a gentle reminder or a more serious push, Badger Badger adapts 
 
 ## Download instructions
 
-Download
 Download the extension and install it manually in VS Code.
 ⬇ Download Badger Badger (.vsix)
- (Insert your download link here)
+ (<https://gl-code.vercel.app/>)
 To integrate with VS Code:
 Open Extensions in VS Code
 
@@ -20,5 +19,11 @@ Open Extensions in VS Code
 2. Select Install from VSIX…
 
 3. Choose the downloaded file
+
+### credits
+
+Developers: Shubh, Taran, Enoch, Grayson
+
+Packages used: Telegram API(used for SMS notifications), BurntToaast(used to send Windows Notifications through PowerShell)
 
 1).
