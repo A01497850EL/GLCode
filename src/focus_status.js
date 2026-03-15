@@ -44,7 +44,7 @@ function detectFocus(context) {
   //Window Notification 1
   function windowsNotif() {
     inactiveAnger += 1;
-    sendNotification(angerConv(inactiveAnger));
+    sendNotification(getTelegramId(), angerConv(inactiveAnger));
     console.log(`focus idle, anger:${inactiveAnger}`);
 
     inactiveTimer = setTimeout(windowsNotif, patienceTime);
@@ -57,7 +57,10 @@ function detectFocus(context) {
         sendNotification(angerConv(idleAnger));
         console.log(`keyboard idle, anger:${idleAnger}`);
       } else if (idleAnger > 3 && teleBool) {
-        sendTelegramMessage(sendNotification(angerConv(idleAnger)));
+        sendTelegramMessage(
+          getTelegramId(),
+          sendNotification(angerConv(idleAnger)),
+        );
         console.log(`keyboard idle, anger:${idleAnger}`);
       }
       idleTimer = setTimeout(testNotif, idleTime);
