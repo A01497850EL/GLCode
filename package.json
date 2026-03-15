@@ -1,6 +1,6 @@
 {
-  "name": "badger-badger",
-  "displayName": "badger-badger",
+  "name": "my-extension",
+  "displayName": "My Extension",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.70.0"
@@ -9,6 +9,7 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "publisher": "GraysonPlug",
   "contributes": {
     "configuration": {
       "title": "Badger Extension",
