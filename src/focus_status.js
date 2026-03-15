@@ -1,7 +1,7 @@
 const vscode = require("vscode");
 const { sendNotification, setupImage } = require("./notify2.js");
 const { sendTelegramMessage } = require("../telegram_bot/bot.js");
-const { getTelegramId } = require("readsettings.js");
+const { getTelegramId, getNotificationInterval } = require("./readsettings.js");
 
 function detectFocus(context) {
   /**
@@ -11,9 +11,9 @@ function detectFocus(context) {
   let idleTimer = null;
   let inactiveAnger = 0;
   let idleAnger = 0;
-  const teleBool = false;
-  const patienceTime = 5 * 1000; // time in milliseconds
-  const idleTime = 5 * 1000;
+  let teleBool = false;
+  const patienceTime = getNotificationInterval(); // time in milliseconds
+  const idleTime = getNotificationInterval();
 
   if (getTelegramId) {
     teleBool = true;
