@@ -5,7 +5,7 @@
   "engines": {
     "vscode": "^1.70.0"
   },
-  "main": "./focus_status.js",
+  "main": "./src/focus_status.js",
   "activationEvents": [
     "onStartupFinished"
   ],
