@@ -1,5 +1,7 @@
 const { exec } = require("child_process");
 const path = require("path");
+const fs = require("fs");
+const os = require("os");
 
 // CORE FUNCTION
 const INTENSITY = {
@@ -52,7 +54,7 @@ const INTENSITY = {
 };
 
 const MODULE_PATH = path.join(__dirname, "lib", "BurntToast");
-const IMAGE_PATH = path.join(__dirname, "assets", "logo.png");
+let IMAGE_PATH;
 
 function sendNotification(intensity) {
   const level = INTENSITY[intensity];
@@ -85,10 +87,9 @@ function sendNotification(intensity) {
 }
 
 function setupImage() {
-    fs.copyFileSync(
-        path.join(__dirname, 'assets', 'logo.png'),
-        path.join(os.tmpdir(), 'logo.png')
-    );
+  const source = path.join(__dirname, "..", "assets", "logo.png");
+  IMAGE_PATH = path.join(os.tmpdir(), "logo.png");
+  fs.copyFileSync(source, IMAGE_PATH);
 }
 
 module.exports = {
