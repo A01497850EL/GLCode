@@ -17,7 +17,8 @@ const INTENSITY = {
       "You were so close to finishing that function. Probably.",
       "Your code misses you. Probably.",
       "This badger noticed you left. This badger is disappointed.",
-      " Here is a quick reminder about your current VSCode project! Do not forget about me!",
+      "Here is a quick reminder about your current VSCode project! Do not forget about me!",
+      "The first step to tackling your task is starting",
     ],
   },
 
