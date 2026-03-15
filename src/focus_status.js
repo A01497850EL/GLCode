@@ -4,101 +4,116 @@ const { sendTelegramMessage } = require("../telegram_bot/bot.js");
 const { getTelegramId, getNotificationInterval } = require("./readsettings.js");
 
 function detectFocus(context) {
-  /**
-   *   Listens for an event if vscode lost/gained focus
-   */
   let inactiveTimer = null;
   let idleTimer = null;
   let inactiveAnger = 0;
   let idleAnger = 0;
-  let teleBool = false;
-  const patienceTime = getNotificationInterval(); // time in milliseconds
-  const idleTime = getNotificationInterval();
 
-  if (getTelegramId) {
-    teleBool = true;
-  }
+  const patienceTime = getNotificationInterval();
+  const idleTime = getNotificationInterval();
+  const teleBool = !!getTelegramId();
 
   function angerConv(anger) {
-    if (anger === 1) {
-      return "low";
-    } else if (anger === 2) {
-      return "medium";
-    } else if (anger >= 3) {
-      return "high";
-    }
+    if (anger === 1) return "low";
+    if (anger === 2) return "medium";
+    if (anger >= 3) return "high";
+    return "low";
   }
 
-  //
-  // This fuction is for keyboard
   function resetIdleTimer() {
     idleAnger = 0;
     clearTimeout(idleTimer);
+    console.log("idle timer reset");
     idleTimer = setTimeout(testNotif, idleTime);
   }
-  //This function is for focus
+
   function startTimer() {
-    clearTimer();
-    inactiveTimer = setTimeout(windowsNotif, patienceTime); // should call windowsNotif after timer runs out
+    clearInactiveTimer();
+    console.log(`starting focus timer for ${patienceTime}ms`);
+    inactiveTimer = setTimeout(windowsNotif, patienceTime);
   }
-  //Window Notification 1
+
   function windowsNotif() {
     inactiveAnger += 1;
-    sendNotification(getTelegramId(), angerConv(inactiveAnger));
-    console.log(`focus idle, anger:${inactiveAnger}`);
+    console.log(`windowsNotif fired, anger:${inactiveAnger}`);
+
+    sendNotification(angerConv(inactiveAnger));
 
     inactiveTimer = setTimeout(windowsNotif, patienceTime);
   }
-  //Test Notification
+
   function testNotif() {
+    console.log("testNotif fired");
+
     if (vscode.window.activeTextEditor && vscode.window.state.focused) {
       idleAnger += 1;
+      console.log(`keyboard idle, anger:${idleAnger}`);
+
       if (idleAnger <= 3) {
         sendNotification(angerConv(idleAnger));
-        console.log(`keyboard idle, anger:${idleAnger}`);
-      } else if (idleAnger > 3 && teleBool) {
-        sendTelegramMessage(
-          getTelegramId(),
-          sendNotification(angerConv(idleAnger)),
-        );
-        console.log(`keyboard idle, anger:${idleAnger}`);
+      } else if (teleBool) {
+        const message = sendNotification(angerConv(idleAnger));
+
+        sendTelegramMessage(getTelegramId(), message)
+          .then((result) => {
+            console.log("Telegram success:", result);
+          })
+          .catch((err) => {
+            console.error("Telegram failed:", err);
+          });
       }
+
       idleTimer = setTimeout(testNotif, idleTime);
+    } else {
+      console.log("testNotif skipped: window not focused or no active editor");
     }
   }
 
-  function clearTimer() {
+  function clearInactiveTimer() {
     if (inactiveTimer) {
-      inactiveAnger = 0;
       clearTimeout(inactiveTimer);
       inactiveTimer = null;
     }
+    inactiveAnger = 0;
   }
 
-  const testListener = vscode.workspace.onDidChangeTextDocument(resetIdleTimer);
+  const textListener = vscode.workspace.onDidChangeTextDocument(() => {
+    resetIdleTimer();
+  });
+
+  const selectionListener = vscode.window.onDidChangeTextEditorSelection(() => {
+    resetIdleTimer();
+  });
+
+  const activeEditorListener = vscode.window.onDidChangeActiveTextEditor(() => {
+    resetIdleTimer();
+  });
 
   const focusListener = vscode.window.onDidChangeWindowState((windowState) => {
     if (windowState.focused) {
-      // vscode gained focus
       console.log("gained focus");
-      clearTimer();
+      clearInactiveTimer();
       resetIdleTimer();
     } else {
-      // vscode lost focus
-      startTimer();
       console.log("lost focus");
+      startTimer();
     }
   });
 
-  resetIdleTimer(); //initiate timer on startup
+  console.log("detectFocus initialized");
+  resetIdleTimer();
 
-  context.subscriptions.push(focusListener, testListener);
+  context.subscriptions.push(
+    focusListener,
+    textListener,
+    selectionListener,
+    activeEditorListener,
+  );
 }
 
 function activate(context) {
-  console.log("attempting setupimage");
+  console.log("extension activated");
   setupImage();
-  console.log("attemping detectfocus");
   detectFocus(context);
 }
 
