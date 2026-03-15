@@ -26,7 +26,7 @@ Install-Module -Name BurntToast
 
 ## Credits
 
-Developers: Shubh, Taran, EnocK, Grayson
+Developers: Shubh, Taran, Enock, Grayson
 
 Packages used: Telegram API (used for SMS notifications), BurntToast (used to send Windows Notifications through PowerShell)
 
