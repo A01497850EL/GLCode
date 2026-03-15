@@ -1,7 +1,7 @@
 {
-  "name": "badger",
+  "name": "badgerbadger",
   "displayName": "BadgerBadger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.70.0"
   },
