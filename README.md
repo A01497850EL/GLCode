@@ -1,6 +1,6 @@
 # Badger Badger
 
-Welcome to Badger Badger!
+_Welcome to Badger Badger!_
 
 When you alt-tab away from VS Code, Badger Badger notices. If you stay away for too long, the system will send notifications that gradually intensify, nudging you to return to work before distractions take over.
 
@@ -8,11 +8,9 @@ Whether you want a gentle reminder or a more serious push, Badger Badger adapts 
 
 ## Download instructions
 
-Download the extension and install it manually in VS Code.
-⬇ Download Badger Badger (.vsix)
-(<https://gl-code.vercel.app/>)
-To integrate with VS Code:
-Open Extensions in VS Code
+Download the .vsix extension in the releases tab.
+
+**To integrate with VS Code:**
 
 1. Install BurntToast via PowerShell Gallery
 
@@ -20,19 +18,19 @@ Open Extensions in VS Code
 Install-Module -Name BurntToast
 ```
 
-1. Click the ⋯ menu in the top-right
+2. Click the ⋯ menu in the top-right
 
-2. Select Install from VSIX…
+3. Select Install from VSIX…
 
-3. Choose the downloaded file
+4. Choose the downloaded file
 
-## credits
+## Credits
 
-Developers: Shubh, Taran, Enoch, Grayson
+Developers: Shubh, Taran, EnocK, Grayson
 
-Packages used: Telegram API(used for SMS notifications), BurntToast(used to send Windows Notifications through PowerShell)
+Packages used: Telegram API (used for SMS notifications), BurntToast (used to send Windows Notifications through PowerShell)
 
-# Connect to the Telegram Notification Bot
+# Connecting to the Telegram Notification Bot
 
 Follow the steps below to enable notifications from the bot.
 
@@ -46,10 +44,11 @@ Before starting, make sure you have:
 - The **Telegram app installed** on either:
   - Your **phone**
   - Your **computer**
+- Installed the Badger VSCode extension
 
-If you do not have Telegram installed, download it here:
+If you do not have Telegram installed, download it below:
 
-https://telegram.org/
+[Telegram Signup Link](https://telegram.org/)
 
 ---
 
@@ -57,7 +56,7 @@ https://telegram.org/
 
 Open the bot using the link below:
 
-https://t.me/badger123_bot
+[Telegram Bot](https://t.me/badger123_bot)
 
 You can open this link in your browser or directly inside the Telegram app.
 
@@ -98,14 +97,9 @@ Telegram bots **cannot send messages to users until the user has interacted with
 You can obtain your **Telegram ID** directly inside Telegram using a helper bot.
 
 1. Open Telegram.
-2. In the search bar, search for:
-
-```
-userinfobot
-```
-
+2. In the search bar, search for: `userinfobot`
 3. Open the bot and click **Start**.
-4. The bot will immediately send you your **ID**.
+4. The bot will immediately reply with your **ID**.
 
 Example:
 
@@ -120,16 +114,11 @@ This number is your **Telegram ID**.
 
 ---
 
-## Step 5 — Enter Your Telegram ID Into the App
+## Step 5 — Enter Your Telegram ID Into VSCode
 
-1. Open the application.
-2. Navigate to **Telegram Settings** or **Notification Settings**.
-3. Find the field labeled:
-
-```
-Telegram ID
-```
-
+1. Launch VSCode.
+2. Navigate to the settings menu.
+3. Under `Extensions` > `Badger Extension`, find the field labeled `Telegram ID`.
 4. Paste your **Telegram ID** into the field.
 5. Save the settings.
 
@@ -139,9 +128,9 @@ Telegram ID
 
 Once you have:
 
-- Clicked **Start**
-- Sent **one message to the bot**
-- Entered your **Telegram ID into the app**
+- Clicked **Start** on the telegram bot
+- Sent **at least one message to the telegram bot**
+- Entered your **Telegram ID into VSCode Settings**
 
 The bot will now be able to send you notifications.
 
@@ -151,7 +140,7 @@ The bot will now be able to send you notifications.
 
 ### The bot does not send messages
 
-Make sure you:
+Make sure you have done all of the following:
 
 - Clicked **Start**
 - Sent **at least one message**
@@ -165,4 +154,4 @@ Make sure the **Telegram app is installed** and allowed to open Telegram links.
 
 # Telegram Bot Link
 
-https://t.me/badger123_bot
+[Badger Bot](https://t.me/badger123_bot)
