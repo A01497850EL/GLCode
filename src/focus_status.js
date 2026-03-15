@@ -1,8 +1,6 @@
 const vscode = require("vscode");
 const { sendNotification, setupImage } = require("./notify2.js");
-
-const telegram_bot = require("../telegram_bot/bot.js")
-//return bot.telegram.sendMessage(allowedId, "hello")
+const { sendTelegramMessage } = require("../telegram_bot/bot.js");
 
 function detectFocus(context) {
   /**
@@ -49,8 +47,13 @@ function detectFocus(context) {
   function testNotif() {
     if (vscode.window.activeTextEditor && vscode.window.state.focused) {
       idleAnger += 1;
-      sendNotification(angerConv(idleAnger));
-      console.log(`keyboard idle, anger:${idleAnger}`);
+      if (idleAnger <= 3) {
+        sendNotification(angerConv(idleAnger));
+        console.log(`keyboard idle, anger:${idleAnger}`);
+      } else if (idleAnger > 3) {
+        sendTelegramMessage(sendNotification(angerConv(idleAnger)));
+        console.log(`keyboard idle, anger:${idleAnger}`);
+      }
       idleTimer = setTimeout(testNotif, idleTime);
     }
   }
