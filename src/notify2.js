@@ -53,6 +53,17 @@ const INTENSITY = {
   },
 };
 
+function setupImage() {
+  const images = ["logo.png", "logo2.png", "logo3.png"];
+
+  images.forEach((image) => {
+    fs.copyFileSync(
+      path.join(__dirname, "..", "images", image),
+      path.join(os.tmpdir(), image),
+    );
+  });
+}
+
 const MODULE_PATH = path.join(__dirname, "lib", "BurntToast");
 
 function sendNotification(intensity) {
@@ -85,17 +96,6 @@ function sendNotification(intensity) {
     }
   });
   return message;
-}
-
-function setupImage() {
-  const images = ["logo.png", "logo2.png", "logo3.png"];
-
-  images.forEach((image) => {
-    fs.copyFileSync(
-      path.join(__dirname, "..", "images", image),
-      path.join(os.tmpdir(), image),
-    );
-  });
 }
 
 module.exports = {

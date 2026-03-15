@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "badgerbadger",
   "displayName": "BadgerBadger",
   "version": "0.0.3",
+=======
+  "name": "badger-badger",
+  "displayName": "badger badger",
+  "version": "0.0.1",
+>>>>>>> 1ff1c2ab7b719d2bb0e457eee04cc68fb2d2a042
   "engines": {
     "vscode": "^1.70.0"
   },
