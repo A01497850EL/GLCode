@@ -87,7 +87,7 @@ function sendNotification(intensity) {
 }
 
 function setupImage() {
-  const source = path.join(__dirname, "..", "assets", "logo.png");
+  const source = path.join(__dirname, "..", "logo.png");
   IMAGE_PATH = path.join(os.tmpdir(), "logo.png");
   fs.copyFileSync(source, IMAGE_PATH);
 }
