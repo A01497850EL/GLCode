@@ -7,27 +7,118 @@
 
 body {
   font-family: "Roboto Flex", sans-serif;
-  background: linear-gradient(135deg, #0a0a0f, #0f1a2b);
+  background: linear-gradient(135deg, #000000, #0e0505);
   color: #fff;
   overflow-x: hidden;
 }
 
-/* BADGER TEXT WALLPAPER OVERLAY */
+/* FULL-SCREEN BADGER WALLPAPER (BRIGHTER + CURSIVE) */
 body::before {
-  content: "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger ";
+  content: "Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger "
+    "Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger Badger ";
+
   position: fixed;
   inset: 0;
-  font-size: 32px;
+
+  /* NEW: cursive font */
+  font-family: "Lucida Handwriting", cursive;
+
+  font-size: 15px; /* slightly bigger */
   font-weight: 600;
-  letter-spacing: 4px;
-  line-height: 40px;
-  color: rgba(255, 255, 255, 0.03);
+  letter-spacing: 1px;
+  line-height: 30px;
+
+  /* NEW: brighter wallpaper text */
+  color: #ff9340e4;
+
   white-space: pre-wrap;
   word-break: break-word;
   pointer-events: none;
   z-index: -1;
-  padding: 40px;
-  opacity: 0.15;
+  padding: 20px;
+  opacity: 0.15; /* NEW: stronger visibility */
 }
 
 /* NAVIGATION */
@@ -39,7 +130,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   backdrop-filter: blur(10px);
-  background: rgba(20, 20, 20, 0.4);
+  background: rgb(20, 20, 20);
   z-index: 1000;
 }
 
