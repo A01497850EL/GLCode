@@ -1,3 +1,4 @@
+// readsettings.js
 const vscode = require("vscode");
 
 /**
@@ -10,13 +11,20 @@ function getTelegramId() {
   return telegramId; // returns as a string
 }
 
-module.exports = { getTelegramId };
+/**
+ * Reads the notification interval (seconds) from VS Code settings.
+ * Converts to milliseconds for timers.
+ * Defaults to 5 minutes (300 seconds) if not set or invalid.
+ * @returns {number} interval in milliseconds
+ */
+function getNotificationInterval() {
+  const config = vscode.workspace.getConfiguration("inactivityReminder");
+  const seconds = config.get < number > ("notificationInterval", 300); // default 5 minutes
+  return Math.max(1, seconds) * 1000; // convert to milliseconds
+}
 
-// reading the getTelegramId
-//const { getTelegramId } = require('./readsetting');
+module.exports = { getTelegramId, getNotificationInterval };
 
-//const telegramId = getTelegramId();
-//console.log("Telegram ID:", telegramId);
-
-// passing the function
-//tarans_function(telegramId);
+// Usage example (optional):
+// const telegramId = getTelegramId();
+// const intervalMs = getNotificationInterval();
