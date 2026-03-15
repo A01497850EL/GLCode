@@ -84,6 +84,7 @@ function sendNotification(intensity) {
       console.log(`Notification sent: "${message}"`);
     }
   });
+  return message;
 }
 
 function setupImage() {
