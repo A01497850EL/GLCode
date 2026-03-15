@@ -1,4 +1,4 @@
-# H1 Badger Badger
+# Badger Badger
 
 Welcome to Badger Badger!
 
@@ -10,9 +10,15 @@ Whether you want a gentle reminder or a more serious push, Badger Badger adapts 
 
 Download the extension and install it manually in VS Code.
 ⬇ Download Badger Badger (.vsix)
- (<https://gl-code.vercel.app/>)
+(<https://gl-code.vercel.app/>)
 To integrate with VS Code:
 Open Extensions in VS Code
+
+1. Install BurntToast via PowerShell Gallery
+
+```powershell
+Install-Module -Name BurntToast
+```
 
 1. Click the ⋯ menu in the top-right
 
@@ -20,14 +26,11 @@ Open Extensions in VS Code
 
 3. Choose the downloaded file
 
-### credits
+## credits
 
 Developers: Shubh, Taran, Enoch, Grayson
 
-Packages used: Telegram API(used for SMS notifications), BurntToaast(used to send Windows Notifications through PowerShell)
-
-1).
-
+Packages used: Telegram API(used for SMS notifications), BurntToast(used to send Windows Notifications through PowerShell)
 
 # Connect to the Telegram Notification Bot
 
@@ -35,15 +38,14 @@ Follow the steps below to enable notifications from the bot.
 
 ---
 
-# Requirements
+## Requirements
 
 Before starting, make sure you have:
 
-* A **Telegram account**
-* The **Telegram app installed** on either:
-
-  * Your **phone**
-  * Your **computer**
+- A **Telegram account**
+- The **Telegram app installed** on either:
+  - Your **phone**
+  - Your **computer**
 
 If you do not have Telegram installed, download it here:
 
@@ -51,7 +53,7 @@ https://telegram.org/
 
 ---
 
-# Step 1 — Open the Bot
+## Step 1 — Open the Bot
 
 Open the bot using the link below:
 
@@ -61,7 +63,7 @@ You can open this link in your browser or directly inside the Telegram app.
 
 ---
 
-# Step 2 — Click **Start**
+## Step 2 — Click **Start**
 
 When the bot opens in Telegram:
 
@@ -71,7 +73,7 @@ This registers your account with the bot.
 
 ---
 
-# Step 3 — Send a Message to the Bot
+## Step 3 — Send a Message to the Bot
 
 Before the bot can send you notifications, **you must send at least one message to the bot**.
 
@@ -91,7 +93,7 @@ Telegram bots **cannot send messages to users until the user has interacted with
 
 ---
 
-# Step 4 — Get Your Telegram ID (Inside Telegram)
+## Step 4 — Get Your Telegram ID (Inside Telegram)
 
 You can obtain your **Telegram ID** directly inside Telegram using a helper bot.
 
@@ -118,7 +120,7 @@ This number is your **Telegram ID**.
 
 ---
 
-# Step 5 — Enter Your Telegram ID Into the App
+## Step 5 — Enter Your Telegram ID Into the App
 
 1. Open the application.
 2. Navigate to **Telegram Settings** or **Notification Settings**.
@@ -133,13 +135,13 @@ Telegram ID
 
 ---
 
-# Step 6 — Setup Complete
+## Step 6 — Setup Complete
 
 Once you have:
 
-* Clicked **Start**
-* Sent **one message to the bot**
-* Entered your **Telegram ID into the app**
+- Clicked **Start**
+- Sent **one message to the bot**
+- Entered your **Telegram ID into the app**
 
 The bot will now be able to send you notifications.
 
@@ -151,9 +153,9 @@ The bot will now be able to send you notifications.
 
 Make sure you:
 
-* Clicked **Start**
-* Sent **at least one message**
-* Entered the correct **Telegram ID**
+- Clicked **Start**
+- Sent **at least one message**
+- Entered the correct **Telegram ID**
 
 ### The link opens in a browser but nothing happens
 
@@ -161,6 +163,6 @@ Make sure the **Telegram app is installed** and allowed to open Telegram links.
 
 ---
 
-# Bot Link
+# Telegram Bot Link
 
 https://t.me/badger123_bot
