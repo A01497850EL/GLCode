@@ -9,6 +9,16 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "contributes": {}
+  "contributes": {
+    "configuration": {
+      "title": "Inactivity Reminder",
+      "properties": {
+        "inactivityReminder.telegramId": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Enter your Telegram ID (optional). Example: `@username`"
+        }
+      }
+    }
+  }
 }
-
