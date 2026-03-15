@@ -1,5 +1,5 @@
 const vscode = require("vscode");
-const { INTENSITY, sendNotification } = require("./notify2.js");
+const { INTENSITY, sendNotification, setupImage } = require("./notify2.js");
 
 function detectFocus(context) {
   /**
@@ -81,7 +81,10 @@ function detectFocus(context) {
 }
 
 function activate(context) {
+  setupImage();
   detectFocus(context);
 }
 
 module.exports = { activate, detectFocus };
+
+

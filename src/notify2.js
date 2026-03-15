@@ -84,9 +84,17 @@ function sendNotification(intensity) {
   });
 }
 
+function setupImage() {
+    fs.copyFileSync(
+        path.join(__dirname, 'assets', 'logo.png'),
+        path.join(os.tmpdir(), 'logo.png')
+    );
+}
+
 module.exports = {
   INTENSITY,
   sendNotification,
+  setupImage,
 };
 
 //testcall example: sendNotification('high');
