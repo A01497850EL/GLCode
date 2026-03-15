@@ -1,6 +1,9 @@
 const vscode = require("vscode");
 const { sendNotification, setupImage } = require("./notify2.js");
 
+const telegram_bot = require("../telegram_bot/bot.js")
+//return bot.telegram.sendMessage(allowedId, "hello")
+
 function detectFocus(context) {
   /**
    *   Listens for an event if vscode lost/gained focus
