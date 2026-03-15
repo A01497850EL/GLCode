@@ -6,7 +6,7 @@ const os = require("os");
 // CORE FUNCTION
 const INTENSITY = {
   low: {
-    // logo: defaultlogo.png,
+    logo: "logo.png",
     sound: "Default",
     messages: [
       "Taking a little break, are we?",
@@ -22,7 +22,7 @@ const INTENSITY = {
   },
 
   medium: {
-    // logo: mediumlogo.png,
+    logo: "logo2.png",
     sound: "IM",
     messages: [
       "You have been gone a while now. Everything okay?",
@@ -38,7 +38,7 @@ const INTENSITY = {
   },
 
   high: {
-    // logo: angrylogo.png,
+    logo: "logo3.png",
     sound: "Alarm2",
     messages: [
       "We know you alt-tabbed. We always know.",
@@ -54,7 +54,6 @@ const INTENSITY = {
 };
 
 const MODULE_PATH = path.join(__dirname, "lib", "BurntToast");
-let IMAGE_PATH;
 
 function sendNotification(intensity) {
   const level = INTENSITY[intensity];
@@ -66,13 +65,14 @@ function sendNotification(intensity) {
   const message =
     level.messages[Math.floor(Math.random() * level.messages.length)];
   const sound = level.sound;
+  const logoPath = path.join(os.tmpdir(), level.logo);
 
   const command = [
     `powershell -ExecutionPolicy Bypass -Command "`,
     `Import-Module '${MODULE_PATH}';`,
     `New-BurntToastNotification`,
     `-Text 'BadgerBadger', '${message}'`,
-    `-AppLogo '${IMAGE_PATH}'`,
+    `-AppLogo '${logoPath}'`,
     `-Sound '${sound}'`,
     `"`,
   ].join(" ");
@@ -87,9 +87,14 @@ function sendNotification(intensity) {
 }
 
 function setupImage() {
-  const source = path.join(__dirname, "..", "logo.png");
-  IMAGE_PATH = path.join(os.tmpdir(), "logo.png");
-  fs.copyFileSync(source, IMAGE_PATH);
+  const images = ["logo.png", "logo2.png", "logo3.png"];
+
+  images.forEach((image) => {
+    fs.copyFileSync(
+      path.join(__dirname, "..", "images", image),
+      path.join(os.tmpdir(), image),
+    );
+  });
 }
 
 module.exports = {
