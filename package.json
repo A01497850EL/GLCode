@@ -12,16 +12,3 @@
   "contributes": {}
 }
 
-"contributes": {
-    "configuration": {
-        "title": "BadgerBadger",
-        "properties": {
-            "gaslighter.intensity": {
-                "type": "string",
-                "default": "medium",
-                "enum": ["low", "medium", "high"],
-                "description": "How aggressively the badger badgers you."
-            }
-        }
-    }
-}
