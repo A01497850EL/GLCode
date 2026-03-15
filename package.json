@@ -11,12 +11,18 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "Inactivity Reminder",
+      "title": "Badger Extension",
       "properties": {
         "inactivityReminder.telegramId": {
           "type": "string",
           "default": "",
           "markdownDescription": "Enter your Telegram ID (optional). Example: `@username`"
+        },
+        "inactivityReminder.notificationInterval": {
+          "type": "number",
+          "default": 300,
+          "minimum": 1,
+          "markdownDescription": "Interval between inactivity notifications in seconds. Default is 300 seconds (5 minutes)."
         }
       }
     }

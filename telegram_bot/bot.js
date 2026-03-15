@@ -1,31 +1,36 @@
-const { Telegraf } = require("telegraf");
-const { getTelegramId } = require("../src/readsettings");
+// const { getTelegramId } = require("../src/readsettings");
 
-const BOT_TOKEN = "8764943029:AAEAMghjeF3AUK8f3HSFYdQ4sI6-17IKBp0";
-const TELEGRAM_ID = 8603235738;
+// const allowedId = 8603235738; //getTelegramId();
 
-const bot = new Telegraf(BOT_TOKEN);
-const allowedId = getTelegramId();
+async function sendTelegramMessage(telegramId, message) {
+  const response = await fetch(
+    "https://telegrammessager-production.up.railway.app/send-telegram",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer b44e4b154d1b3608ba0098f1a6ca56287f9b2daba8f25fa7f72c63f020a4fcbc",
+      },
+      body: JSON.stringify({
+        telegramId,
+        message,
+      }),
+    },
+  );
 
-async function sendTelegramMessage(text) {
-  return bot.telegram.sendMessage(allowedId, text);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "Failed to send Telegram message");
+  }
+
+  return data;
 }
 
-function startEchoBot() {
-  bot.on("text", async (ctx) => {
-    if (ctx.chat.id !== allowedId) {
-      return;
-    }
-
-    await ctx.reply(ctx.message.text);
-  });
-
-  return bot.launch();
-}
-
-// return bot.telegram.sendMessage(allowedId, "hello")
+//test
+// sendTelegramMessage(allowedId, "yerr")
 
 module.exports = {
   sendTelegramMessage,
-  startEchoBot,
 };

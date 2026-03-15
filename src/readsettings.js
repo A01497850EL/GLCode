@@ -25,7 +25,7 @@ function getNotificationInterval() {
     seconds = 300; // default 5 minutes
   }
 
-  return Math.max(1, seconds) * 1000;
+  return Math.max(10, seconds) * 1000;
 }
 
 module.exports = {
